@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mystrix Hub Key</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --red:#ff1717;
+  --dark:#050505;
+}
+
+body{
+  min-height:100vh;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-family:Orbitron,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 50% 45%,#3b0000 0%,#120000 28%,#030303 70%);
+}
+
+/* GRID */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(rgba(255,0,0,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,0,0,.035) 1px,transparent 1px);
+  background-size:45px 45px;
+  animation:gridMove 10s linear infinite;
+  pointer-events:none;
+}
+
+@keyframes gridMove{
+  from{background-position:0 0}
+  to{background-position:45px 45px}
+}
+
+/* GLOW */
+
+.glow{
+  position:fixed;
+  width:430px;
+  height:430px;
+  border-radius:50%;
+  background:red;
+  filter:blur(150px);
+  opacity:.12;
+  pointer-events:none;
+  animation:glowMove 8s ease-in-out infinite alternate;
+}
+
+.glow.one{
+  top:-190px;
+  left:-180px;
+}
+
+.glow.two{
+  right:-180px;
+  bottom:-190px;
+  animation-delay:2s;
+}
+
+@keyframes glowMove{
+  0%{transform:scale(.9)}
+  50%{transform:scale(1.2) translate(40px,-20px)}
+  100%{transform:scale(1) translate(-20px,40px)}
+}
+
+/* PARTICLES */
+
+.particle{
+  position:fixed;
+  bottom:-20px;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:#ff2020;
+  box-shadow:0 0 10px red;
+  animation:particleUp linear infinite;
+  opacity:0;
+}
+
+.p1{left:8%;animation-duration:7s}
+.p2{left:20%;animation-duration:10s;animation-delay:2s}
+.p3{left:35%;animation-duration:8s;animation-delay:1s}
+.p4{left:50%;animation-duration:12s;animation-delay:3s}
+.p5{left:65%;animation-duration:9s}
+.p6{left:80%;animation-duration:11s;animation-delay:2s}
+.p7{left:93%;animation-duration:8s;animation-delay:4s}
+
+@keyframes particleUp{
+  0%{
+    transform:translateY(0);
+    opacity:0;
+  }
+
+  15%{opacity:.8}
+
+  100%{
+    transform:translate(-40px,-110vh);
+    opacity:0;
+  }
+}
+
+/* CARD */
+
+.card{
+  position:relative;
+  z-index:10;
+  width:min(92%,490px);
+  padding:45px 32px 30px;
+  border-radius:30px;
+
+  background:rgba(8,8,8,.86);
+
+  border:1px solid rgba(255,30,30,.28);
+
+  backdrop-filter:blur(25px);
+
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.85),
+    0 0 70px rgba(255,0,0,.08),
+    inset 0 1px rgba(255,255,255,.06);
+
+  animation:cardIn .9s cubic-bezier(.16,1,.3,1),
+            cardFloat 5s ease-in-out infinite 1s;
+}
+
+@keyframes cardIn{
+  from{
+    opacity:0;
+    transform:translateY(50px) scale(.88);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+@keyframes cardFloat{
+  0%,100%{margin-top:0}
+  50%{margin-top:-7px}
+}
+
+/* TOP LINE */
+
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:8%;
+  width:84%;
+  height:2px;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    red,
+    #ff7777,
+    red,
+    transparent
+  );
+
+  box-shadow:
+    0 0 10px red,
+    0 0 25px red;
+
+  animation:linePulse 2s ease-in-out infinite;
+}
+
+@keyframes linePulse{
+  0%,100%{
+    opacity:.4;
+    transform:scaleX(.75);
+  }
+
+  50%{
+    opacity:1;
+    transform:scaleX(1);
+  }
+}
+
+/* =========================
+   M LOGO
+========================= */
+
+.logo-area{
+  position:relative;
+  width:125px;
+  height:125px;
+  margin:0 auto 24px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* VIỀN NGOÀI LIỀN */
+
+.logo-frame{
+  position:absolute;
+  width:116px;
+  height:116px;
+
+  border:2px solid #ff2020;
+  border-radius:29px;
+
+  box-shadow:
+    0 0 8px #ff0000,
+    0 0 22px rgba(255,0,0,.6),
+    inset 0 0 15px rgba(255,0,0,.15);
+
+  animation:framePulse 2s ease-in-out infinite;
+}
+
+/* góc sáng */
+
+.logo-frame::before,
+.logo-frame::after{
+  content:"";
+  position:absolute;
+
+  width:10px;
+  height:10px;
+
+  background:#ff2424;
+  border-radius:50%;
+
+  box-shadow:
+    0 0 10px red,
+    0 0 20px red;
+}
+
+.logo-frame::before{
+  top:-6px;
+  left:22px;
+}
+
+.logo-frame::after{
+  right:22px;
+  bottom:-6px;
+}
+
+@keyframes framePulse{
+  0%,100%{
+    box-shadow:
+      0 0 8px red,
+      0 0 20px rgba(255,0,0,.45),
+      inset 0 0 15px rgba(255,0,0,.1);
+  }
+
+  50%{
+    box-shadow:
+      0 0 15px red,
+      0 0 40px rgba(255,0,0,.8),
+      inset 0 0 20px rgba(255,0,0,.2);
+  }
+}
+
+/* LOGO M */
+
+.m-logo{
+  position:relative;
+
+  width:91px;
+  height:91px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ff3333 0%,
+      #d00000 30%,
+      #610000 62%,
+      #0a0000 100%
+    );
+
+  border:2px solid #ff4b4b;
+
+  transform:skew(-5deg);
+
+  box-shadow:
+    0 0 10px red,
+    0 0 30px rgba(255,0,0,.65),
+    0 0 60px rgba(255,0,0,.3),
+    inset 0 0 25px rgba(0,0,0,.75);
+
+  animation:mFloat 3s ease-in-out infinite;
+}
+
+/* M */
+
+.m-logo span{
+  position:relative;
+  z-index:5;
+
+  font-family:Arial,sans-serif;
+
+  font-size:65px;
+  font-weight:1000;
+  font-style:italic;
+
+  color:#fff;
+
+  line-height:1;
+
+  transform:skew(5deg);
+
+  text-shadow:
+    2px 2px 0 #850000,
+    4px 4px 0 #420000,
+    0 0 8px white,
+    0 0 20px red,
+    0 0 40px red;
+}
+
+/* INNER FRAME */
+
+.m-logo::before{
+  content:"";
+  position:absolute;
+  inset:6px;
+
+  border-radius:18px;
+
+  border:1px solid rgba(255,255,255,.3);
+
+  box-shadow:
+    inset 0 0 18px rgba(255,0,0,.3);
+}
+
+/* LIGHT */
+
+.m-logo::after{
+  content:"";
+
+  position:absolute;
+
+  width:140%;
+  height:20px;
+
+  left:-120%;
+  top:12px;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.5),
+    transparent
+  );
+
+  filter:blur(6px);
+
+  transform:rotate(-15deg);
+
+  animation:logoLight 2.5s ease-in-out infinite;
+}
+
+@keyframes logoLight{
+  0%{
+    left:-120%;
+    opacity:0;
+  }
+
+  25%{opacity:1}
+
+  100%{
+    left:130%;
+    opacity:0;
+  }
+}
+
+@keyframes mFloat{
+  0%,100%{
+    transform:translateY(0) rotate(-2deg) skew(-5deg);
+  }
+
+  50%{
+    transform:translateY(-8px) rotate(2deg) skew(-5deg);
+  }
+}
+
+/* TITLE */
+
+h1{
+  text-align:center;
+
+  font-size:clamp(25px,7vw,35px);
+  font-weight:900;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fff,
+      #fff 42%,
+      #ff2020
+    );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  filter:drop-shadow(0 0 10px rgba(255,0,0,.25));
+
+  animation:titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow{
+  0%,100%{
+    filter:drop-shadow(0 0 7px rgba(255,0,0,.15));
+  }
+
+  50%{
+    filter:drop-shadow(0 0 20px rgba(255,0,0,.45));
+  }
+}
+
+.subtitle{
+  text-align:center;
+  margin-top:10px;
+  margin-bottom:31px;
+
+  color:#888;
+  font-family:Arial,sans-serif;
+  font-size:13px;
+}
+
+/* KEY */
+
+.key-container{
+  position:relative;
+
+  display:flex;
+  gap:8px;
+
+  padding:6px;
+
+  border-radius:17px;
+
+  background:rgba(255,255,255,.035);
+
+  border:1px solid rgba(255,255,255,.09);
+
+  overflow:hidden;
+
+  transition:.3s;
+}
+
+.key-container:hover{
+  border-color:rgba(255,30,30,.5);
+
+  box-shadow:
+    0 0 25px rgba(255,0,0,.15);
+}
+
+.key{
+  position:relative;
+  z-index:2;
+
+  flex:1;
+  min-width:0;
+
+  padding:15px 12px;
+
+  color:#e5e5e5;
+
+  font-family:Arial,sans-serif;
+  font-size:12px;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* BUTTON */
+
+button{
+  position:relative;
+  z-index:5;
+
+  border:0;
+  border-radius:12px;
+
+  padding:0 20px;
+
+  color:white;
+
+  font-family:Orbitron,sans-serif;
+  font-size:11px;
+  font-weight:900;
+
+  cursor:pointer;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff3030,
+      #c90000,
+      #820000
+    );
+
+  box-shadow:
+    0 0 15px rgba(255,0,0,.35);
+
+  transition:.25s;
+}
+
+button:hover{
+  transform:translateY(-3px) scale(1.02);
+
+  box-shadow:
+    0 0 30px rgba(255,0,0,.7),
+    0 10px 30px rgba(0,0,0,.5);
+}
+
+button:active{
+  transform:scale(.94);
+}
+
+/* STATUS */
+
+.status{
+  height:20px;
+
+  margin-top:17px;
+
+  text-align:center;
+
+  color:#ff3939;
+
+  font-family:Arial,sans-serif;
+  font-size:12px;
+}
+
+/* FOOTER */
+
+.footer{
+  margin-top:20px;
+
+  text-align:center;
+
+  color:#505050;
+
+  font-family:Arial,sans-serif;
+  font-size:10px;
+
+  letter-spacing:1px;
+}
+
+.footer span{
+  color:#ff2424;
+  text-shadow:0 0 8px red;
+}
+
+/* MOBILE */
+
+@media(max-width:430px){
+
+  .card{
+    padding:38px 20px 27px;
+  }
+
+  .logo-area{
+    width:112px;
+    height:112px;
+  }
+
+  .logo-frame{
+    width:105px;
+    height:105px;
+  }
+
+  .m-logo{
+    width:80px;
+    height:80px;
+  }
+
+  .m-logo span{
+    font-size:57px;
+  }
+
+  h1{
+    font-size:26px;
+  }
+
+  .key{
+    font-size:10px;
+  }
+
+  button{
+    padding:0 14px;
+    font-size:9px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow one"></div>
+<div class="glow two"></div>
+
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+<div class="particle p4"></div>
+<div class="particle p5"></div>
+<div class="particle p6"></div>
+<div class="particle p7"></div>
+
+<main class="card">
+
+  <!-- M LOGO -->
+  <div class="logo-area">
+
+    <div class="logo-frame"></div>
+
+    <div class="m-logo">
+      <span>M</span>
+    </div>
+
+  </div>
+
+  <h1>Mystrix Hub Key</h1>
+
+  <p class="subtitle">
+    Your access key is ready
+  </p>
+
+  <div class="key-container">
+
+    <div class="key" id="key">
+      MysticHubKeyHso - Hsiosownsosososjdjd
+    </div>
+
+    <button id="copyBtn" onclick="copyKey()">
+      COPY KEY
+    </button>
+
+  </div>
+
+  <div class="status" id="status"></div>
+
+  <div class="footer">
+    POWERED BY <span>MYSTRIX HUB</span> • 2026
+  </div>
+
+</main>
+
+<script>
+
+function copyKey(){
+
+  const key =
+    document
+    .getElementById("key")
+    .innerText
+    .trim();
+
+  const button =
+    document.getElementById("copyBtn");
+
+  const status =
+    document.getElementById("status");
+
+  navigator.clipboard
+  .writeText(key)
+  .then(()=>{
+
+    button.innerText="COPIED ✓";
+
+    status.innerText=
+      "Key copied successfully!";
+
+    button.style.boxShadow=
+      "0 0 35px rgba(255,0,0,.9)";
+
+    setTimeout(()=>{
+
+      button.innerText="COPY KEY";
+
+      status.innerText="";
+
+      button.style.boxShadow="";
+
+    },2200);
+
+  })
+  .catch(()=>{
+
+    status.innerText=
+      "Không thể copy key.";
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>
